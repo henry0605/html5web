@@ -38,16 +38,21 @@
     a {
         display: block; /* 將預設inline改為block */
         text-decoration: none;
-    
-}
+    }
 /* 頁首區 */
 #topbar {
     display: flex; /* 預設主軸為水平 */
     justify-content: space-between; /* 主軸(水平)均分貼齊頭尾 */
+    align-items: center; /* 副軸(垂直)置中 */
     padding: 30px;
 }
 .logo{
     width: 65px;
+}
+.navigation {
+    display: flex;
+    flex-direction: column; /* 主軸(垂直) */
+    align-items: flex-end; /* 副軸(水平)置底 */
 }
 .navigation.icon {
     display: flex;
@@ -56,5 +61,37 @@
 .navigation.icon a{
     width: 35px;
     height: 35px;
-    border:solid 1px;
+    margin-left: 10px;
+    transition: 0.35s;
+}
+.icon-fb { /* 只有svg圖會自動等比例縮放，其他圖檔原始尺寸 */
+    background-image: url(../images/icon-fb.svg);
+}
+.icon-fb:hover { 
+    background-image: url(../images/icon-fb-hover.svg);
+}
+.icon-ig {
+    background-image: url(../images/icon-ig.svg);
+}
+.icon-ig:hover {
+    background-image: url(../images/icon-ig-hover.svg);
+}
+.icon-line {
+    background-image: url(../images/icon-line.svg);
+}
+.icon-line:hover {
+    background-image: url(../images/icon-line-hover.svg);
+}
+.navigation.menu {
+    display: flex;
+    margin: 15px 0; /* 控制父層的外距 */
+}
+.navigation.menu a{
+    color: #aaa;
+    margin: 0 10px; /* 控制子層的外距 */
+    border-bottom: solid 2px transparent;
+}
+.navigation.menu a :hover{
+    border-bottom: solid 2px #aaa;
+    transition: .35s;
 }
