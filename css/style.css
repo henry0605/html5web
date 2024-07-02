@@ -1,97 +1,161 @@
-@charset "UTF-8"; 
+@charset "UTF-8";
+
 /* UTF-8一定要在行數1 */
 /* 重置所有標籤的樣式 */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* 不累加內距padding與邊框border */
-    }
+    box-sizing: border-box;
+    /* 不累加內距padding與邊框border */
+}
 
-    /* 重置字體 */
-    body {
-        font-family:
-        /*西文*/ -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
-        /*中文*/ "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
-        font-size: 100%;
-        line-height: 1.5;
-    }
+/* 重置字體 */
+body {
+    font-family:
+        /*西文*/
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        /*中文*/
+        "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    background-color: rgb(74, 168, 214);
+}
 
-    /* 重置標題 */
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: normal;
-    }
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
 
-    /* 重置列表 */
-    ul,ol {
-        list-style: none;
-    }
+/* 重置列表 */
+ul,
+ol {
+    list-style: none;
+}
 
-    /* 重置圖片 */
-    img {
+/* 重置圖片 */
+img {
     display: block;
     width: 100%;
     max-width: 100%;
     height: auto;
-    }
+}
 
-    /* 重置連接 */
-    a {
-        display: block; /* 將預設inline改為block */
-        text-decoration: none;
-    }
+/* 重置連接 */
+a {
+    display: block;
+    /* 將預設inline改為block */
+    text-decoration: none;
+    color: #999;
+}
+p{
+    font-size: .8rem;
+    line-height: 1.2rem;
+}
+/* 共用區 */
+.btn-s {
+    background-color: white;
+    color: #000;
+    width: auto!important;
+    height: 35px;
+    line-height: 30px;
+    padding: 0 20px;
+    border-radius: 99px;
+    transition: .35s ease-in-out;
+}
+.btn-s:hover{
+    background-color: #999;
+    color: white;
+}
+
 /* 頁首區 */
 #topbar {
-    display: flex; /* 預設主軸為水平 */
-    justify-content: space-between; /* 主軸(水平)均分貼齊頭尾 */
-    align-items: center; /* 副軸(垂直)置中 */
+    display: flex;
+    /* 預設主軸為水平 */
+    justify-content: space-between;
+    /* 主軸(水平)均分貼齊頭尾 */
+    align-items: center;
+    /* 副軸(垂直)置中 */
     padding: 30px;
 }
-.logo{
+
+.logo {
     width: 65px;
 }
+
 .navigation {
     display: flex;
-    flex-direction: column; /* 主軸(垂直) */
-    align-items: flex-end; /* 副軸(水平)置底 */
+    flex-direction: column;
+    /* 主軸(垂直) */
+    align-items: flex-end;
+    /* 副軸(水平)置底 */
 }
-.navigation.icon {
+
+.navigation .icon {
     display: flex;
 }
 
-.navigation.icon a{
+.navigation .icon a {
     width: 35px;
     height: 35px;
     margin-left: 10px;
     transition: 0.35s;
 }
-.icon-fb { /* 只有svg圖會自動等比例縮放，其他圖檔原始尺寸 */
+
+.icon-fb {
+    /* 只有svg圖會自動等比例縮放，其他圖檔原始尺寸 */
     background-image: url(../images/icon-fb.svg);
 }
-.icon-fb:hover { 
+
+.icon-fb:hover {
     background-image: url(../images/icon-fb-hover.svg);
 }
+
 .icon-ig {
     background-image: url(../images/icon-ig.svg);
 }
+
 .icon-ig:hover {
     background-image: url(../images/icon-ig-hover.svg);
 }
+
 .icon-line {
     background-image: url(../images/icon-line.svg);
 }
+
 .icon-line:hover {
     background-image: url(../images/icon-line-hover.svg);
 }
-.navigation.menu {
+
+.navigation .menu {
     display: flex;
-    margin: 15px 0; /* 控制父層的外距 */
+    margin: 15px 0;
+    /* 控制父層的外距 */
 }
-.navigation.menu a{
-    color: #aaa;
-    margin: 0 10px; /* 控制子層的外距 */
+
+.navigation .menu li {
+    border-left: solid 1px #000;
+    /* 按鈕分隔線 */
+}
+
+.navigation .menu li:first-child {
+    border-left: none;
+}
+
+.navigation .menu a {
+    color: #000;
+    font-size: .9rem;
+    line-height: 1;
+    margin: 0 10px;
+    /* 控制子層的外距 */
     border-bottom: solid 2px transparent;
 }
-.navigation.menu a :hover{
+
+.navigation .menu a :hover {
     border-bottom: solid 2px #aaa;
     transition: .35s;
 }
