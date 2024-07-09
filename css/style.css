@@ -1,6 +1,10 @@
-@charset "UTF-8";
-
-/* UTF-8一定要在行數1 */
+@charset "UTF-8"; /* UTF-8一定要在行數1 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+/* 一定要在第二行 */
+@font-face {
+    font-family: Bridgers;
+    src: url(../webfons/Bridgers\ Brush.ttf);
+}
 /* 重置所有標籤的樣式 */
 * {
     margin: 0;
@@ -18,7 +22,7 @@ body {
         "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
     font-size: 100%;
     line-height: 1.5;
-    background-color: rgb(74, 168, 214);
+    
 }
 
 /* 重置標題 */
@@ -158,4 +162,74 @@ p{
 .navigation .menu a :hover {
     border-bottom: solid 2px #aaa;
     transition: .35s;
+}
+
+/* 主要內容共用區*/
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title h2{
+    font-family: Bridgers,sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    letter-spacing: 0.4rem;
+    border-bottom: 2px solid #525252;
+
+}
+.title h3{
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    line-height: 2rem;
+}
+
+/* 聯絡我們 */
+#contact {
+    /* 背景影像基本設定 */
+    background-image:url(../images/bg_contact.jpg);
+    background-size: cover; /* 自動剪裁 */
+    background-position:center center; /* 置中 */
+    background-repeat: no-repeat;
+    background-attachment: fixed;/* 固定背景 */
+
+
+}
+#form--contact{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+
+}
+#form--contact label{
+    font-size: 0.85rem;
+    line-height: 2;
+    margin-top: 1rem;
+}
+#form--contact input,#form--contact textarea{
+    padding: 6px;
+    color: rgb(119, 73, 12);
+    font-weight: 600;
+}
+#form--contact input::placeholder,#form--contact textarea::placeholder{
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgb(203, 186, 194);
+}
+#form--contact small{
+    font-size: 0.8rem;
+    color: rgb(79, 53, 18);
+    padding: 15px 5px;
 }
