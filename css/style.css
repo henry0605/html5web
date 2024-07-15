@@ -251,7 +251,7 @@ section /* 標籤 */{
 }
 .box__list p{
     font-size: .9rem;
-    text-align: justify;　/*對齊文字 ，建議中文使用，英文是單字間距均分*/
+    text-align: justify; /*對齊文字 ，建議中文使用，英文是單字間距均分*/
 }
 
 /* 最新消息區 */
