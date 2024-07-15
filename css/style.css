@@ -79,12 +79,14 @@ p {
 
 .btn-s:hover {
     background-color: #999;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 #form--contact input,
 #form--contact textarea,
-.navigation .menu {
+#btn__contact--submit, 
+.menu
+{
     /* 玻璃擬態 */
     background-image: linear-gradient(150deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.5));
     /* rgba常用于需要设置颜色透明度的场景 */
@@ -95,6 +97,7 @@ p {
 }
 
 #form--contact input,
+#btn__contact--submit,
 #form--contact textarea {
     border-radius: 10px;
     /* 圓角 */
@@ -106,6 +109,9 @@ p {
 
 /* 頁首區 */
 #topbar {
+    position: fixed;/* 固定定位:不會跟捲軸走 */
+    z-index: 999;
+    width: 100%;/* 定位會變成抓內容尺寸，所以要手動設定回w100% */
     display: flex;
     /* 預設主軸為水平 */
     justify-content: space-between;
@@ -199,7 +205,7 @@ p {
 }
 
 /* 主要內容共用區*/
-section {
+section /* 標籤 */{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -211,6 +217,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .title h2 {
@@ -230,9 +237,28 @@ section {
     letter-spacing: 0.2rem;
     line-height: 2rem;
 }
+.box__list{
+    width: 80%;
+    display: flex;
+}
+.box__list .item{
+    flex: 1;
+    margin: 0 15px;
+}
+.box__list h1{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.box__list p{
+    font-size: .9rem;
+    text-align: justify;　/*對齊文字 ，建議中文使用，英文是單字間距均分*/
+}
 
+/* 最新消息區 */
 /* 聯絡我們 */
 #contact {
+    position: relative; /* 專門給absolute的定位依據 */
+    overflow: hidden;
     /* 背景影像基本設定 */
     background-image: url(../images/bg_contact.jpg);
     background-size: cover;
@@ -242,8 +268,22 @@ section {
     background-repeat: no-repeat;
     background-attachment: fixed;
     /* 固定背景 */
+}
 
-
+/* 裝飾花 */
+.flower_r{
+    position: absolute; /* 絕對定位 */
+    left:-30px;
+    bottom: -50px;
+    width: 400px;
+    transform: rotate(35deg);
+}
+.flower_w{
+    position: absolute; /* 絕對定位 */
+    right:-30px;
+    bottom: 150px;
+    width: 400px;
+    transform: rotate(-50deg);
 }
 
 #form--contact {
@@ -294,27 +334,31 @@ section {
 
 /* 動態按鈕 */
 #btn__contact--submit {
-    position: relative;
-    outline: none;
-    text-decoration: none;
+    /*position: relative;*/
+    /* outline: none; */
+    /* text-decoration: none; 取消文字底線裝飾*/
     border-radius: 50px;
+    /* 定義起始位置 */
     display: flex;
     justify-content: center;
     align-items: center;
+    /* 游標樣式 : 手型*/
     cursor: pointer;
-    text-transform: uppercase;
+    /* text-transform: uppercase; 設定字母大寫*/
     height: 60px;
     width: 210px;
-    opacity: 1;
-    background-color: #ffffff;
-    border: 1px solid rgba(22, 76, 167, 0.6);
+    /* opacity: 1; 透明度
+    /* 取消button預設值 */
+    /* background-color: #ffffff;*/
+    border: 1px solid rgba(174, 119, 8, 0.6); 
 }
 
 #btn__contact--submit span {
     color: #164ca7;
-    font-size: 12px;
+    font-size: .8rem;
     font-weight: 500;
-    letter-spacing: 0.7px;
+    letter-spacing: 1rem; /* 每個字左邊加字距 */
+    padding-left: 1rem;/* 區塊置中時，因為字距會不對齊，而補回字距的間距 */
 }
 
 #btn__contact--submit:hover {
