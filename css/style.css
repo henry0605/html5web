@@ -57,7 +57,7 @@ a {
     display: block;
     /* 將預設inline改為block */
     text-decoration: none;
-    color: #999;
+    color: var(--deep);
 }
 
 p {
@@ -66,8 +66,29 @@ p {
 }
 
 /* 共用區 */
+:root{
+    /* 灰階 */
+    --deep:#444;
+    --grey: #999;
+    --light: #f1f1f1;
+
+    /* 背景 */
+    --primry:#f2edf0;
+    --secondary:#e6ece5;
+    --tertiary:#ecf0f4;
+
+    /* 輔助 */
+    --lesser-1:#f3e4e4;
+    --lesser-2:#efdbdb;
+    --lesser-3:#cdaaab;
+    --lesser-4:#8f6b6d;
+    
+}
+
+
+
 .btn-s {
-    background-color: white;
+    background-color: var(--light);
     color: #000;
     width: auto !important;
     height: 35px;
@@ -78,8 +99,8 @@ p {
 }
 
 .btn-s:hover {
-    background-color: #999;
-    color: rgb(255, 255, 255);
+    background-color: var(--deep);
+    color: var(--light);
 }
 
 #form--contact input,
@@ -239,11 +260,26 @@ section /* 標籤 */{
 }
 .box__list{
     width: 80%;
+    max-width: 1440px; /* 通常搭配相對單位，設定絕對單位 */
     display: flex;
+}
+.box__list figure{
+    height: 40vh;
 }
 .box__list .item{
     flex: 1;
     margin: 0 15px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    overflow: hidden;
+}
+.box__list img{
+    object-fit: cover;
+   /*  width: 100%; 共用區已設定過 */
+    height: 100%;
+}
+.box__list .content{
+    padding: 20px 15px;
 }
 .box__list h1{
     font-size: 1.3rem;
@@ -251,10 +287,99 @@ section /* 標籤 */{
 }
 .box__list p{
     font-size: .9rem;
-    text-align: justify; /*對齊文字 ，建議中文使用，英文是單字間距均分*/
+    text-align: justify; /*對齊文字 ，建議中文使用，英文是單字間距均分*/    
 }
 
 /* 最新消息區 */
+#news {
+    background-color: var(--primry);
+}
+#news .content{
+    background-color: rgba(0, 0, 0, .1);
+    transition: 0.8s;
+}
+#news .content:hover{
+    background-color: var(--light);
+}
+
+#news p{
+    /* 多行省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;/* 文字溢出時出現省略號，若有設定line-clamp時，瀏覽器會自動加入 */
+    display: -webkit-box;/* 彈性佈局 */
+    -webkit-box-orient: vertical;/* 定義box垂直佈局 */
+    -webkit-line-clamp: 5;/*限制行數 */
+}
+
+/* 服務項目區 */
+#service{
+    background-color: var(--secondary);
+}
+#service p{
+    /* 單行省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#service .item{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 70vh;
+    background-position: center;
+    background-size: cover;
+}
+#service a{
+    /* width: 100%; 被父元素的disp;ay改變寬度，所以要手動改回寬度 */ 
+    color: var(--light);
+    background-color: rgba(0, 0, 0, .4);
+    transition: 0.5s;
+    }
+#service a:hover{
+    color: #a5f506;
+    background-color: var(--grey);
+}    
+
+.svc-1{
+    background-image: url(../images/pt_svc1.jpg);
+}
+.svc-2{
+    background-image: url(../images/pt_svc2.jpg);
+}
+.svc-3{
+    background-image: url(../images/pt_svc3.jpg);
+}
+.svc-4{
+    background-image: url(../images/pt_svc4.jpg);
+}
+/* 相關影片區 */
+#video{
+    background-color: var(--tertiary);
+}
+.video{
+    width: 65%;
+    max-width: 1050px;
+}
+video{
+    width: 100%;
+}
+/* 關於我們區 */
+#about .content{
+    width: 65%;
+    height: 100%; /* 高度百分比是抓父元素的高度 */
+    background-color: var(--lesser-2);
+    
+    /* 垂直水平置中，很常用*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#about p{
+    width: 90%;
+    height: 65vh;
+    overflow: auto;
+}
 /* 聯絡我們 */
 #contact {
     position: relative; /* 專門給absolute的定位依據 */
@@ -316,7 +441,7 @@ section /* 標籤 */{
 #form--contact input:focus,
 #form--contact textarea:focus {
     /* 修改內邊框foucs預設樣式 */
-    outline: 1px solid#b6f605;
+    outline: 1px solid var(--lesser-3);
 }
 
 #form--contact input::placeholder,
@@ -354,7 +479,7 @@ section /* 標籤 */{
 }
 
 #btn__contact--submit span {
-    color: #164ca7;
+    color:var(--lesser-4);
     font-size: .8rem;
     font-weight: 500;
     letter-spacing: 1rem; /* 每個字左邊加字距 */
