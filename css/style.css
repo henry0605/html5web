@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* UTF-8一定要在行數1 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&Noto+Sans+TC:wght@100..900&display=swap');
 
 /* 一定要在第二行 */
 @font-face {
@@ -645,3 +645,51 @@ video {
         transform: translate3d(0, 0, 0) translateZ(0);
     }
 }
+
+/* 頁尾區 */
+footer{
+    padding: 30px;
+}
+footer div{
+    display: flex;
+    justify-content: space-between;
+}
+/* 取消頁首區的間距 */
+footer .navigation .menu{
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+footer .navigation .menu a{
+    font-weight: 700;
+    
+}
+footer .navigation .menu li{
+    border-left: none;
+    
+}
+
+/* 取消頁尾區全部的邊框 */
+footer .navigation .submenu li{
+    border: none;
+    margin: 10px 0;
+}
+/* 中型設備 (ipadair)*/
+@media(max-width:820px){  /* 820以下都包含 */
+    footer{
+        text-align: center;
+    }
+    footer div{
+        display: none;
+    }
+ }
+
+
+
+
+
+/* 中型設備 (ipadair)*/
+@media(max-width:820px){ }
+/* 小型設備 (手機)*/
+@media(max-width:640px){ }
