@@ -37,6 +37,13 @@
                 </svg>
             </a>
         </h1>
+        <div class="navbar">
+            <!-- 漢堡按鈕 -->
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         <!-- 選單列 -->
         <nav class="navigation">
             <!-- icon btn | ul.icon>li*3>a -->
@@ -56,6 +63,7 @@
                 <li><a href="#">CONTACT</a></li>
             </ul>
         </nav>
+    </div>
     </header>
     <main>
         <!-- 換圖輪播區 -->
@@ -182,7 +190,7 @@
                         </div>
                     </a>
                 </article>
-                <article class="item">
+                <article class="box__list">
                     <a href="#">
                         <!-- 圖片 -->
                         <figure><img src="./images/pt_news3.jpg" alt=""></figure>
@@ -195,6 +203,7 @@
                     </a>
                 </article>
             </div>
+        <a class ="btn-s" href="#">more</a>
         </section>
         <!-- 服務項目區 -->
         <section id="service">
@@ -246,6 +255,7 @@
                     </a>
                 </li>
             </ul>
+            <a class ="btn-s" href="#">more</a>
         </section>
         <!-- 關於我們後面的影片 -->
         <section id="video">
@@ -452,7 +462,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <!-- 換圖輪播JS，因為是寫jqery，所以一定邀先執行jquery原始黨，要放在他下面 -->
 <script src="./js/carousel.js"></script> 
-
-
+<!-- 自訂的js，一定要寫在最下面，要最後執行 -->
+<script src="./js/script.js"></script>
 </body>
 </html>

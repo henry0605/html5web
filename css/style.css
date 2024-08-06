@@ -184,7 +184,29 @@ p {
 .logo svg {
     filter: drop-shadow(2px 3px rgba(60, 155, 45, 0.5));
 }
+.navbar{
+    display: flex;
+    flex-direction: column; /* 垂直主軸 */
+    align-items: flex-end;/* 副軸(水平) : 置底(靠右) */
+}
 
+/* 漢堡按鈕區 */
+/* 修改漢堡在瀏覽器上預設的樣式 */
+.hamburger {
+    background-color: transparent;
+    border: none;
+}
+
+.hamburger .bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--deep);
+    margin: 5px auto;
+}
+
+
+/* 主要選單區 */
 .navigation {
     display: flex;
     flex-direction: column;
@@ -255,6 +277,24 @@ p {
     border-bottom: solid 2px transparent;
 }
 
+@media (min-width:641px){
+    .hamburger{
+        display: none;
+    }
+}
+@media (max-width:640px){
+    .navigation .menu{
+        flex-direction: column;
+        border-radius: 15px;
+    }
+    .navigation .menu a{
+        margin: 15px;
+    }
+    .navigation .menu li{
+        border: none;
+    }
+}
+
 .navigation .menu a :hover {
     border-bottom: solid 2px #aaa;
     transition: .35s;
@@ -309,7 +349,7 @@ section
 }
 
 .box__list .item {
-    flex: 1;
+    flex: 1; /* 平板以上交換主軸方向，flex:1變成高度，flex權重大於寬高 */
     margin: 0 15px;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
@@ -364,6 +404,20 @@ section
     /*限制行數 */
 }
 
+/* 中型設備 */
+@media(max-width:820px) {
+    #news .item:last-child {
+        display: none;
+    }
+}
+
+/* 小型設備 */
+@media(max-width:640px) {
+    #news .item:nth-child(n+2) {
+        display: none;
+    }
+}
+
 /* 服務項目區 */
 #service {
     background-color: var(--secondary);
@@ -380,7 +434,7 @@ section
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 70vh;
+    height: 60vh; /* 平板以上交換主軸方向，flex:1變成高度，flex權重大於寬高 */
     background-position: center;
     background-size: cover;
 }
@@ -413,6 +467,28 @@ section
     background-image: url(../images/pt_svc4.jpg);
 }
 
+/* 平板以上尺寸 */
+@media(min-width:821px) {
+    #service .btn-s {
+        display: none;
+    }
+}
+
+/* 820以下 */
+@media(max-width:820px) {
+    #service .box__list {
+        flex-direction: column;
+        height: 60vh; /* flex:1高度均分時，富元素預設為抓內容尺寸，需另外設定高度使其有空間均分 */
+    }
+    #service .item{
+        margin-bottom: 30px;
+    }
+
+    #service .item:nth-child(n+3) {
+        display: none;
+    }
+}
+
 /* 相關影片區 */
 #video {
     background-color: var(--tertiary);
@@ -426,15 +502,21 @@ section
 video {
     width: 100%;
 }
+@media(max-width:820px){
+    #video{
+        height: auto; /* 取消桌機版的100vh */
+        padding: 5vh 0;
+    }
+}
 
 /* 關於我們區 */
-#about{
+#about {
     position: relative;
     background-color: var(--lesser-1);
 }
 
 #about .content {
-    position:absolute;
+    position: absolute;
     z-index: 1;
     width: 65%;
     height: 100%;
@@ -446,23 +528,33 @@ video {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px); /* 只有about區要模糊 */
+    backdrop-filter: blur(5px);
+    /* 只有about區要模糊 */
 }
 
 #about p {
     width: 90%;
     height: 65vh;
     padding-right: 20px;
-    overflow: scroll; /* 推薦使用auto，用scroll是因為要練習卷軸變色 */
+    overflow: scroll;
+    /* 推薦使用auto，用scroll是因為要練習卷軸變色 */
 }
-#about video{
+
+#about video {
     object-fit: cover;
     height: 100%;
     width: 100%;
-    mix-blend-mode: overlay; /* 混和模式 */
-    filter: brightness(120%) contrast(80%); /* 濾鏡 */
+    mix-blend-mode: overlay;
+    /* 混和模式 */
+    filter: brightness(120%) contrast(80%);
+    /* 濾鏡 */
 }
-
+@media(max-width:820px){
+    #about .content{
+        width: 85%;
+    }
+}
+/* 卷軸區 */
 #about p::-webkit-scrollbar-thumb {
     border-radius: 99px;
     border: 1px solid var(--lesser-4);
@@ -473,7 +565,8 @@ video {
 }
 
 #about p::-webkit-scrollbar-button {
-    display: none; /* 預設就是display: none，是因為body有設定button，所以需要另外設定取消 */
+    display: none;
+    /* 預設就是display: none，是因為body有設定button，所以需要另外設定取消 */
 }
 
 #about p::-webkit-scrollbar-corner {
@@ -527,7 +620,18 @@ video {
     /* 統一設定中文字體，不一定要設定 */
 
 }
+@media(max-width:820px){
+    #form--contact{
+        width:50%;
+    }
+}
+@media(max-width:640px){
+    .flower_r,.flower_w{
+        display: none;
+    }
 
+
+}
 #form--contact label {
     font-size: 0.85rem;
     line-height: 2;
@@ -647,49 +751,57 @@ video {
 }
 
 /* 頁尾區 */
-footer{
+footer {
     padding: 30px;
 }
-footer div{
+
+footer div {
     display: flex;
     justify-content: space-between;
 }
+
 /* 取消頁首區的間距 */
-footer .navigation .menu{
+footer .navigation .menu {
     margin: 0;
     padding: 0;
     box-shadow: none;
 }
 
-footer .navigation .menu a{
+footer .navigation .menu a {
     font-weight: 700;
-    
+
 }
-footer .navigation .menu li{
+
+footer .navigation .menu li {
     border-left: none;
-    
+
 }
 
 /* 取消頁尾區全部的邊框 */
-footer .navigation .submenu li{
+footer .navigation .submenu li {
     border: none;
     margin: 10px 0;
 }
+
 /* 中型設備 (ipadair)*/
-@media(max-width:820px){  /* 820以下都包含 */
-    footer{
+@media(max-width:820px) {
+
+    /* 820以下都包含 */
+    footer {
         text-align: center;
     }
-    footer div{
+
+    footer div {
         display: none;
     }
- }
+}
 
 
 
 
 
 /* 中型設備 (ipadair)*/
-@media(max-width:820px){ }
+@media(max-width:820px) {}
+
 /* 小型設備 (手機)*/
-@media(max-width:640px){ }
+@media(max-width:640px) {}
