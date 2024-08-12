@@ -139,6 +139,7 @@ p {
 
 #form--contact input,
 #form--contact textarea,
+#topbar .menu,
 #btn__contact--submit,
 .menu {
     /* 玻璃擬態 */
@@ -148,6 +149,83 @@ p {
     box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.5), inset -1px -1px rgba(255, 255, 255, 0.8);
     /* 陰影會有整個框邊 */
     backdrop-filter: blur(5px);
+}
+
+@media(max-width:640px) {
+    #topbar {
+        align-items: flex-start;
+    }
+
+    .hamburger .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--deep);
+        margin: 5px auto;
+        transition: 0.45s;
+    }
+    
+    /* 三 變換為 X */
+    .hamburger.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navigation {
+        align-items: center;
+        /* 副軸(水平)置中 */
+        padding: 10px;
+        background-image: linear-gradient(150deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.5));
+        /* rgba常用于需要设置颜色透明度的场景 */
+        /*filter:drop-shadow(2px 3px rgba(0,0,0,0.1)); 跟圖案一膜一樣陰影效果的濾鏡 */
+        box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.5), inset -1px -1px rgba(255, 255, 255, 0.8);
+        /* 陰影會有整個框邊 */
+        backdrop-filter: blur(5px);
+        border-radius: 15px;
+        /* 動畫效果 */
+        animation: hide .45s both;
+    }
+    .navigation.show{
+        display: flex;
+        /* 動畫效果 */
+        animation: show .45s both;
+    }
+
+    @keyframes hide {
+        from{opacity: 1; display: flex;}
+        to{opacity: 0; display: none;}
+    }
+    @keyframes show {
+        from{opacity: 0;}
+        to{opacity: 1;}
+        
+    }
+
+    #topbar .menu {
+        text-align: center;
+        flex-direction: column;
+        order: -1;
+        /* 玻璃擬態效果 */
+        background-image: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        background-color: transparent;
+    }
+
+    .navigation.menu li {
+        border: none;
+    }
+
+    .navigation .menu a {
+        margin: 15px;
+    }
 }
 
 #form--contact input,
@@ -184,10 +262,13 @@ p {
 .logo svg {
     filter: drop-shadow(2px 3px rgba(60, 155, 45, 0.5));
 }
-.navbar{
+
+.navbar {
     display: flex;
-    flex-direction: column; /* 垂直主軸 */
-    align-items: flex-end;/* 副軸(水平) : 置底(靠右) */
+    flex-direction: column;
+    /* 垂直主軸 */
+    align-items: flex-end;
+    /* 副軸(水平) : 置底(靠右) */
 }
 
 /* 漢堡按鈕區 */
@@ -197,13 +278,6 @@ p {
     border: none;
 }
 
-.hamburger .bar{
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--deep);
-    margin: 5px auto;
-}
 
 
 /* 主要選單區 */
@@ -277,20 +351,23 @@ p {
     border-bottom: solid 2px transparent;
 }
 
-@media (min-width:641px){
-    .hamburger{
+@media (min-width:641px) {
+    .hamburger {
         display: none;
     }
 }
-@media (max-width:640px){
-    .navigation .menu{
+
+@media (max-width:640px) {
+    .navigation .menu {
         flex-direction: column;
         border-radius: 15px;
     }
-    .navigation .menu a{
+
+    .navigation .menu a {
         margin: 15px;
     }
-    .navigation .menu li{
+
+    .navigation .menu li {
         border: none;
     }
 }
@@ -349,7 +426,8 @@ section
 }
 
 .box__list .item {
-    flex: 1; /* 平板以上交換主軸方向，flex:1變成高度，flex權重大於寬高 */
+    flex: 1;
+    /* 平板以上交換主軸方向，flex:1變成高度，flex權重大於寬高 */
     margin: 0 15px;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
@@ -434,7 +512,8 @@ section
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 60vh; /* 平板以上交換主軸方向，flex:1變成高度，flex權重大於寬高 */
+    height: 60vh;
+    /* 平板以上交換主軸方向，flex:1變成高度，flex權重大於寬高 */
     background-position: center;
     background-size: cover;
 }
@@ -478,9 +557,11 @@ section
 @media(max-width:820px) {
     #service .box__list {
         flex-direction: column;
-        height: 60vh; /* flex:1高度均分時，富元素預設為抓內容尺寸，需另外設定高度使其有空間均分 */
+        height: 60vh;
+        /* flex:1高度均分時，富元素預設為抓內容尺寸，需另外設定高度使其有空間均分 */
     }
-    #service .item{
+
+    #service .item {
         margin-bottom: 30px;
     }
 
@@ -502,9 +583,11 @@ section
 video {
     width: 100%;
 }
-@media(max-width:820px){
-    #video{
-        height: auto; /* 取消桌機版的100vh */
+
+@media(max-width:820px) {
+    #video {
+        height: auto;
+        /* 取消桌機版的100vh */
         padding: 5vh 0;
     }
 }
@@ -549,11 +632,13 @@ video {
     filter: brightness(120%) contrast(80%);
     /* 濾鏡 */
 }
-@media(max-width:820px){
-    #about .content{
+
+@media(max-width:820px) {
+    #about .content {
         width: 85%;
     }
 }
+
 /* 卷軸區 */
 #about p::-webkit-scrollbar-thumb {
     border-radius: 99px;
@@ -620,18 +705,23 @@ video {
     /* 統一設定中文字體，不一定要設定 */
 
 }
-@media(max-width:820px){
-    #form--contact{
-        width:50%;
+
+@media(max-width:820px) {
+    #form--contact {
+        width: 50%;
     }
 }
-@media(max-width:640px){
-    .flower_r,.flower_w{
+
+@media(max-width:640px) {
+
+    .flower_r,
+    .flower_w {
         display: none;
     }
 
 
 }
+
 #form--contact label {
     font-size: 0.85rem;
     line-height: 2;
@@ -704,6 +794,21 @@ video {
 #btn__contact--submit:hover span {
     animation: storm 0.7s ease-in-out both;
     animation-delay: 0.06s;
+}
+#gotop{
+    position: fixed; /* 固定定位 */
+    right: 20px;
+    bottom: 20px;
+    z-index: 999; /* 屬性(層次)最前面 */
+
+    width: 50px;
+    height: 50px;
+    background-color: var(--lesser-3);
+    border-radius: 50%;
+    padding: 5px;
+
+    cursor: pointer; /* 米奇手樣式 */
+
 }
 
 @keyframes rotate {
