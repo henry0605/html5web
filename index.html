@@ -159,12 +159,12 @@
         </section>
         <!-- 最新消息區 -->
         <section id="news">
-            <header class="title">
+            <header class="title smoove">
                 <h2>NEWS</h2>
                 <h3>最新消息</h3>
             </header>
             <div class="box__list">
-                <article class="item">
+                <article class="item smoove" data-move-x="-120%" data-rotate="90deg">
                     <!-- a>(figure>img)+div.content>h1+p -->
                     <a href="#">
                         <figure><img src="./images/pt_news1.jpg" alt=""></figure>
@@ -178,7 +178,7 @@
                         </div>
                     </a>
                 </article>
-                <article class="item">
+                <article class="item smoove" data-move-x="60%" data-rotate="500deg">
                     <a href="#">
                         <figure><img src="./images/pt_news2.jpg" alt=""></figure>
                         <div class="content">
@@ -191,7 +191,7 @@
                         </div>
                     </a>
                 </article>
-                <article class="item">
+                <article class="item smoove" data-move-x="120%" data-rotate="-90deg">
                     <a href="#">
                         <!-- 圖片 -->
                         <figure><img src="./images/pt_news3.jpg" alt=""></figure>
@@ -216,7 +216,7 @@
             <!-- 列表區 -->
             <!-- ul.box__list>li.item*4>a[href="#"]>h1{SERVICE TITLE}+p -->
             <ul class="box__list">
-                <li class="item svc-1">
+                <li class="item svc-1 smoove" data-move-x="-200px" data-move-y="100px" >
                     <a href="#" class="content">
                         <h1>SERVICE TITLE</h1>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda commodi vero minus nihil
@@ -226,7 +226,7 @@
                             reprehenderit incidunt quod aspernatur ab.</p>
                     </a>
                 </li>
-                <li class="item svc-2">
+                <li class="item svc-2 smoove" data-move-x="-100px" data-move-y="100px">
                     <a href="#" class="content">
                         <h1>SERVICE TITLE</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus illo maxime explicabo
@@ -236,7 +236,7 @@
                             suscipit, at eius accusamus deleniti.</p>
                     </a>
                 </li>
-                <li class="item svc-3">
+                <li class="item svc-3 smoove" data-move-x="100px" data-move-y="100px">
                     <a href="#" class="content">
                         <h1>SERVICE TITLE</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum hic quibusdam laboriosam in,
@@ -246,7 +246,7 @@
                             odio provident?</p>
                     </a>
                 </li>
-                <li class="item svc-4">
+                <li class="item svc-4 smoove" data-move-x="200px" data-move-y="100px">
                     <a href="#" class="content">
                         <h1>SERVICE TITLE</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore rem omnis explicabo tenetur
@@ -265,11 +265,11 @@
                 <h3>相關影片</h3>
             </header>
             <!-- 影片容器 -->
-            <div class="video">
-                <!-- 影片本人 -->
+            <div class="video smoove smoove-z">
+            <!-- 影片本人 -->
                 <video src="./images/Planter.mp4" poster="./images/cover.jpg" controls></video>
                 <!-- 瀏覽器設定autoplay必須搭配muted才能使用 -->
-            </div>
+            </style=>
 
         </section>
         <!-- 關於我們區 -->
@@ -464,7 +464,17 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <!-- 換圖輪播JS，因為是寫jqery，所以一定邀先執行jquery原始黨，要放在他下面 -->
 <script src="./js/carousel.js"></script> 
+<!-- jQuery Smoove CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smoove/0.2.10/jquery.smoove.min.js"></script>
 <!-- 自訂的js，一定要寫在最下面，要最後執行 -->
 <script src="./js/script.js"></script>
+<script>
+    $('.smoove-z').smoove({
+    moveZ : '-500px',
+    rotateX : '90deg',
+    moveY : '300px'
+});
+</script>
+
 </body>
 </html>

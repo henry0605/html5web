@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery淡出淡入效果</title>
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            font-size: 20px;
+        }
+        #box1{ background-color: rgb(115,224,187);}
+        #box2{ background-color: rgb(178, 91, 91);}
+        #box3{ background-color: rgb(193, 124, 34);}
+        #box4{ background-color: rgb(80, 73, 211);}
+    </style>
+</head>
+<body>
+    <button>按我</button>
+    <div id="box1">fadeIn</div>
+    <div id="box2">fadeOut</div>
+    <div id="box3">fadeToggle</div>
+    <div id="box4">fadeTO</div>
+<!-- jQuery官方CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                $('#box1').fadeIn(2000);
+                $('#box2').fadeOut('slow');
+                $('#box3').fadeToggle('fast');
+                $('#box4').fadeTo('',0.4);
+            });
+
+        });
+    </script>
+</body>
+</html>
